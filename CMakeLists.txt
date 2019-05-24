@@ -197,7 +197,11 @@ if(NOT SKIP_INSTALL_LIBRARIES AND NOT SKIP_INSTALL_ALL )
   )
 
   # Note: variable 'targets_export_name' used
-  configure_file("cmake/Config.cmake.in" "${project_config}" @ONLY)
+  configure_package_config_file(
+      "cmake/Config.cmake.in"
+      "${project_config}"
+      INSTALL_DESTINATION "${config_install_dir}"
+  )
 
   install(
       TARGETS zlib
